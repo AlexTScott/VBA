@@ -10,12 +10,12 @@ Function GetFilesIn(Folder As String) As Collection
   Loop
 End Function
 
-Function GetFoldersIn(Folder As String) As Collection
+Function GetFoldersIn(folder As String) As Collection
   Dim F As String
   Set GetFoldersIn = New Collection
-  F = Dir(Folder & "\*", vbDirectory)
+  F = Dir(folder & "\*", vbDirectory)
   Do While F <> ""
-    If GetAttr(Folder & "\" & F) And vbDirectory Then GetFoldersIn.Add F
+    If GetAttr(folder & "\" & F) And vbDirectory And F <> "." And F <> ".." Then GetFoldersIn.Add F
     F = Dir
   Loop
 End Function
