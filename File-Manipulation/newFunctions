@@ -1,0 +1,37 @@
+Function GetFilesIn(Folder As String) As Collection
+  Dim F As String
+  Set GetFilesIn = New Collection
+  F = Dir(Folder & "\*")
+  Do While F <> ""
+    GetFilesIn.Add F
+    F = Dir
+  Loop
+End Function
+
+Function GetFoldersIn(Folder As String) As Collection
+  Dim F As String
+  Set GetFoldersIn = New Collection
+  F = Dir(Folder & "\*", vbDirectory)
+  Do While F <> ""
+    If GetAttr(Folder & "\" & F) And vbDirectory Then GetFoldersIn.Add F
+    F = Dir
+  Loop
+End Function
+
+Sub Test()
+  Dim C As Collection, F
+
+  Debug.Print
+  Debug.Print "Files in C:\"
+  Set C = GetFilesIn("C:\")
+  For Each F In C
+    Debug.Print F
+  Next F
+
+  Debug.Print
+  Debug.Print "Folders in C:\"
+  Set C = GetFoldersIn("C:\")
+  For Each F In C
+    Debug.Print F
+  Next F
+End Sub
