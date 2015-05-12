@@ -1,3 +1,5 @@
+'http://stackoverflow.com/questions/9827715/get-list-of-subdirs-in-vba
+
 Function GetFilesIn(Folder As String) As Collection
   Dim F As String
   Set GetFilesIn = New Collection
