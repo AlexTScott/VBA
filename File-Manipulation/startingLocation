@@ -1,0 +1,7 @@
+'Before opening a folder, you can include the following to change the starting path where the dialog window will open at by
+'including the following code:
+
+ChDrive ("C:\")
+ChDir ("folder\subFolder\subSubFolder\")
+
+'Here is where you would put the code to open the file.
